@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      lucide-static:
-        specifier: ^0.563.0
-        version: 0.563.0
     devDependencies:
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -39,6 +35,9 @@ importers:
       bootstrap:
         specifier: ^5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
+      lucide-static:
+        specifier: ^0.563.0
+        version: 0.563.0
       react:
         specifier: ^19.2.4
         version: 19.2.4
