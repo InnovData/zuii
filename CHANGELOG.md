@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/vincentm498/zuii/compare/v1.0.0...v1.1.0) (2026-01-29)
+
+
+### Features
+
+* Ajout du composant Button React, configuration de Vite et des styles de base pour la bibliothèque UI. ([d39d9c6](https://github.com/vincentm498/zuii/commit/d39d9c6a4d2e861d843c90747563d19e3db9376c))
+
 # 1.0.0 (2026-01-29)
 
 
