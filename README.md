@@ -30,3 +30,7 @@ npm install zuii
 Le développement de **zuii** est structuré en plusieurs phases. Vous pouvez suivre l'avancement détaillé dans notre fichier dédié :
 
 👉 **[Consulter la Roadmap complète](ROADMAP.md)**
+
+## 📝 Changelog
+
+👉 **[Consulter le changelog](CHANGELOG.md)**
