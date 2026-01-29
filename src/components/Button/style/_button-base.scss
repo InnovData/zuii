@@ -1,0 +1,39 @@
+	.btn {
+		--btn-hover-color: white;
+		--btn-active-color: var(--accent);
+		--btn-border-color: var(--primary);
+		--btn-bg: var(--primary);
+		--btn-hover-bg: var(--primary-dark);
+		--btn-hover-border-color: var(--primary-dark);
+		--btn-active-bg: var(--primary-dark);
+		--btn-active-border-color: var(--primary-dark);
+		--btn-disabled-bg: var(--primary);
+		--btn-disabled-border-color: var(--primary);
+
+		height: fit-content;
+
+		&:hover,
+		&:focus {
+			box-shadow: var(--box-shadow-md);
+		}
+	}
+
+	.btn-content {
+		display: flex;
+		line-height: initial;
+		gap: 0.3rem;
+	}
+
+	.btn-icon {
+		display: flex;
+		line-height: initial;
+		justify-content: center;
+		align-items: center;
+		padding: 0.4rem;
+
+		.btn-content {
+			flex-direction: column;
+		}
+	}
+
+
