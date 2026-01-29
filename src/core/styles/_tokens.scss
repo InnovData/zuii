@@ -1,0 +1,15 @@
+// src/styles/_tokens.scss
+:root {
+	// Couleurs
+	--z-primary: #3b82f6;
+	--z-primary-dark: #2563eb;
+	--z-secondary: #64748b;
+
+	// États
+	--z-disabled-opacity: 0.6;
+	--z-transition: 0.2s ease-in-out;
+
+	// Espacement & Radius
+	--z-radius-md: 8px;
+	--z-gap: 1rem;
+}

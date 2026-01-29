@@ -1,0 +1,19 @@
+
+
+.z-btn {
+	padding: 10px 20px;
+	border: none;
+	border-radius: var(--z-radius-md);
+	background-color: var(--z-primary);
+	color: white;
+	transition: background-color var(--z-transition);
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--z-primary-dark);
+	}
+
+	&--secondary {
+		background-color: var(--z-secondary);
+	}
+}
