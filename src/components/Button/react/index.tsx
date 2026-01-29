@@ -1,17 +1,66 @@
-import React, { useEffect, useRef } from 'react';
-import { renderButton, ButtonConfig } from '../js/Button';
+import { Button as BootstrapButton, ButtonProps } from "react-bootstrap";
 import '../style/button.scss';
+import { Icon } from "../../Icon/react";
 
-export const ZButton: React.FC<ButtonConfig> = (props) => {
-	const containerRef = useRef<HTMLDivElement>(null);
+interface Props extends Omit<ButtonProps, "size"> {
+	/**
+	 * Le titre à afficher sur le bouton.
+	 */
+	children?: React.ReactNode;
+	/**
+	 * La taille du bouton. Supporte les tailles Bootstrap (sm, lg) et personnalisées (xl, xs).
+	 */
+	size?: "sm" | "md" | "lg" | "xl" | "xs" | undefined;
+	/**
+	 * L'icône à afficher sur le bouton.
+	 */
+	icon?: string;
+	/**
+	 * La direction du bouton.
+	 */
+	reverse?: boolean;
+	/**
+	 * Style de bouton seulement avec icône
+	 */
+	btnIcon?: boolean;
+	/**
+	 * Style de bouton transparent
+	 */
+	transparent?: boolean;
+}
 
-	useEffect(() => {
-		if (containerRef.current) {
-			containerRef.current.innerHTML = ''; // Nettoyage
-			const btn = renderButton(props);
-			containerRef.current.appendChild(btn);
-		}
-	}, [props]);
+/**
+ * Composant Bouton personnalisé.
+ * Supporte toutes les propriétés de react-bootstrap.
+ *
+ * @param {Props} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le composant bouton rendu.
+ */
+export const Button = ({
+	children = "",
+	variant = "primary",
+	reverse = false,
+	size,
+	icon,
+	btnIcon = false,
+	transparent = false,
+	className = "",
 
-	return <div ref={containerRef} style={{ display: 'contents' }} />;
+	...props
+}: Props & ButtonProps) => {
+
+	const customSizeClass = size ? `btn-${size}` : "";
+
+	return (
+		<BootstrapButton
+			variant={variant}
+			className={`${className} ${customSizeClass} ${btnIcon ? "btn-icon" : ""} ${transparent ? "btn-transparent" : ""}`.trim()}
+			{...props}
+		>
+			<div className={`btn-content ${reverse ? "btn-reverse" : ""}`}>
+				{icon && <Icon name={icon} />}
+				{children && children}
+			</div>
+		</BootstrapButton>
+	);
 };

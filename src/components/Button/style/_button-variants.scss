@@ -1,0 +1,51 @@
+@use "@core/tokens.scss" as *;
+@use "button-mixins";
+
+	@each $variant, $value in $brands {
+		.btn-#{$variant} {
+			@include button-mixins.button-variant($variant);
+		}
+
+		.btn-#{$variant}-light {
+			@include button-mixins.button-variant($variant, "#{$variant}-light", "light");
+			--btn-hover-bg: var(--#{$variant});
+			--btn-hover-border-color: var(--#{$variant});
+		}
+
+		.btn-#{$variant}-dark {
+			@include button-mixins.button-variant($variant, "#{$variant}-dark", "dark");
+			--btn-hover-bg: var(--#{$variant});
+			--btn-hover-border-color: var(--#{$variant});
+		}
+
+		.btn-outline-#{$variant} {
+			@include button-mixins.button-outline($variant);
+		}
+
+		.btn-outline-#{$variant}-light {
+			@include button-mixins.button-outline($variant, "#{$variant}-light", "light");
+			--btn-hover-bg: var(--#{$variant}-light);
+		}
+
+		.btn-outline-#{$variant}-dark {
+			@include button-mixins.button-outline($variant, "#{$variant}-dark", "dark");
+			--btn-hover-bg: var(--#{$variant}-dark);
+		}
+	}
+
+	.btn-transparent {
+		--btn-bg: transparent;
+		--btn-border-color: transparent;
+		--btn-hover-bg: transparent;
+		--btn-hover-border-color: transparent;
+		--btn-hover-color: var(--primary);
+		--btn-active-bg: transparent;
+		--btn-active-border-color: transparent;
+
+		&:hover {
+			box-shadow: none;
+
+		}
+
+	}
+

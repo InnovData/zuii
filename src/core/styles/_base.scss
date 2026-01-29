@@ -1,18 +1,13 @@
-// src/styles/_base.scss
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
+@layer vendor, components;
+
+$variable-prefix: "";
+$prefix: "";
+
+@layer vendor {
+	@import "bootstrap/scss/bootstrap";
 }
 
-body {
+
+p {
 	margin: 0;
-	padding: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: var(--z-font-family, 'Inter', system-ui, sans-serif);
-}
-
-button {
-	font-family: inherit;
 }
