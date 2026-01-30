@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import fs from 'fs';
 import StyleDictionary from 'style-dictionary';
 import { getConfigs } from './config.js';
 import { fileURLToPath } from 'url';
@@ -38,6 +39,33 @@ const parseArgs = () => {
 	return { tokenPaths, outputPath: resolve(outputPath) };
 };
 
+/**
+ * Génère le fichier de styles de base avec le wrapper Bootstrap
+ * @param {string} outputPath
+ */
+const generateMainStyle = (outputPath) => {
+	const content = `@layer vendor, components;
+
+$variable-prefix: "";
+$prefix: "";
+
+@layer vendor {
+	@import "bootstrap/scss/bootstrap";
+}
+`;
+	const filePath = join(outputPath, 'main.scss');
+
+	// On ne l'écrit que s'il n'existe pas
+	if (!fs.existsSync(filePath)) {
+		// S'assurer que le dossier existe
+		if (!fs.existsSync(outputPath)) {
+			fs.mkdirSync(outputPath, { recursive: true });
+		}
+		fs.writeFileSync(filePath, content);
+		console.log(`\n✨ Generated ${filePath}`);
+	}
+};
+
 console.log('🚀 Starting Style Dictionary build...');
 
 /**
@@ -64,6 +92,10 @@ const runBuild = async () => {
 			const sd = new StyleDictionary(config);
 			await sd.buildAllPlatforms();
 		}
+
+		// Générer le fichier de styles de base
+		generateMainStyle(outputPath);
+
 		console.log('\n✅ Build completed successfully!');
 	} catch (error) {
 		console.error('\n❌ Build failed:', error);

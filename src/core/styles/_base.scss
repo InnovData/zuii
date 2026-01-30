@@ -1,11 +1,6 @@
 @layer vendor, components;
 
-$variable-prefix: "";
-$prefix: "";
 
-@layer vendor {
-	@import "bootstrap/scss/bootstrap";
-}
 
 
 p {

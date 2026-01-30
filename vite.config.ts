@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
   root: 'playground',
@@ -13,7 +14,7 @@ export default defineConfig({
       insertTypesEntry: true,
       include: ['../src'],
       exclude: ['../src/playground.tsx', '**/playground/**'],
-      outDir: '../dist'
+      outDir: resolve(__dirname, 'dist')
     })
   ],
   resolve: {
@@ -35,7 +36,11 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.peerDependencies || {}),
+        'react/jsx-runtime'
+      ],
       output: {
         preserveModules: true,
         preserveModulesRoot: resolve(__dirname, 'src'),
