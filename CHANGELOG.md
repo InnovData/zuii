@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/vincentm498/zuii/compare/v1.2.1...v1.2.2) (2026-01-30)
+
+
+### Bug Fixes
+
+* Ajout de `pnpm-lock.yaml` aux assets de release et réinitialisation de la version du `package.json`. ([66c6b41](https://github.com/vincentm498/zuii/commit/66c6b4143bac702a22aef2354f45d7c2e36e79ae))
+* Reclasse et met à jour les dépendances du projet et le fichier pnpm-lock. ([b2407ec](https://github.com/vincentm498/zuii/commit/b2407ecde28728b7c47242a367b20d31a39accae))
+
 ## [1.2.1](https://github.com/vincentm498/zuii/compare/v1.2.0...v1.2.1) (2026-01-30)
 
 
