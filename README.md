@@ -29,6 +29,9 @@ npm install zuii
 
 **zuii** utilise les [CSS Cascade Layers](https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/Cascade_layers) pour vous donner un contrôle total sur la priorité des styles et faciliter la personnalisation sans conflits.
 
+> [!IMPORTANT]
+> L'import de votre fichier de styles principal (ex: `import './styles/main.scss'`) doit impérativement être fait **avant** l'import de n'importe quel composant **zuii**. Dans le cas contraire, les couches (layers) de styles tiers (comme Bootstrap) risquent de prendre le dessus sur les styles de la bibliothèque.
+
 ### Structure recommandée
 
 **zuii** définit trois couches principales pour organiser les priorités :
