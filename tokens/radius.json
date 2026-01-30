@@ -1,0 +1,11 @@
+{
+	"border-radius": {
+		"base": { "value": "var(--size-1)" },
+		"sm": { "value": "var(--size-2)" },
+		"lg": { "value": "var(--size-4)" },
+		"xl": { "value": "var(--size-8)" },
+		"xxl": { "value": "var(--size-16)" },
+		"2xl": { "value": "var(--size-32)" },
+		"pill": { "value": "999rem" }
+	}
+}

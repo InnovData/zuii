@@ -1,19 +1,26 @@
 {
 	"name": "zuii",
-	"version": "1.0.0",
+	"version": "1.2.0",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"style-dictionary"
 	],
+	"bin": {
+		"zuii-tokens": "./style-dictionary/build.js"
+	},
 	"scripts": {
 		"dev": "vite",
+		"prebuild": "pnpm run tokens:build",
 		"build": "vite build",
+		"postbuild": "cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/",
 		"preview": "vite preview",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"tokens:build": "node style-dictionary/build.js --output src/core/styles"
 	},
 	"keywords": [],
 	"author": "Vincent Moreau",
@@ -42,6 +49,8 @@
 		"vite-plugin-dts": "^4.5.4",
 		"vite-plugin-lib-inject-css": "^2.2.2",
 		"bootstrap": "^5.3.8",
-		"lucide-static": "^0.563.0"
+		"lucide-static": "^0.563.0",
+		"style-dictionary": "^4.2.0",
+		"colord": "^2.9.3"
 	}
 }
