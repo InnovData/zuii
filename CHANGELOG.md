@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/vincentm498/zuii/compare/v1.2.3...v1.2.4) (2026-01-30)
+
+
+### Bug Fixes
+
+* ajouter la dépendance `sass-embedded` ([53eb742](https://github.com/vincentm498/zuii/commit/53eb742c76b0b72351aae8dd97cf954038d0496e))
+
 ## [1.2.3](https://github.com/vincentm498/zuii/compare/v1.2.2...v1.2.3) (2026-01-30)
 
 
