@@ -5,13 +5,15 @@ import { resolve } from 'path';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 export default defineConfig({
+  root: 'playground',
   plugins: [
     react(),
 	libInjectCss(),
     dts({
       insertTypesEntry: true,
-      include: ['src'],
-      exclude: ['src/playground.tsx', '**/playground/**'],
+      include: ['../src'],
+      exclude: ['../src/playground.tsx', '**/playground/**'],
+      outDir: '../dist'
     })
   ],
   resolve: {
@@ -23,6 +25,7 @@ export default defineConfig({
     devSourcemap: true,
   },
   build: {
+    outDir: resolve(__dirname, 'dist'),
 	cssCodeSplit: true,
     lib: {
       name: 'zuii',
@@ -35,7 +38,7 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         preserveModules: true,
-        preserveModulesRoot: 'src',
+        preserveModulesRoot: resolve(__dirname, 'src'),
         exports: 'named',
         entryFileNames: ({ name }) => `${name}.js`,
         assetFileNames: (assetInfo) => {
