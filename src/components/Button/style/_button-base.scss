@@ -1,6 +1,6 @@
 	.btn {
 		--btn-hover-color: white;
-		--btn-active-color: var(--accent);
+		--btn-active-color: white;
 		--btn-border-color: var(--primary);
 		--btn-bg: var(--primary);
 		--btn-hover-bg: var(--primary-dark);
@@ -35,6 +35,10 @@
 		.btn-content {
 			flex-direction: column;
 		}
+	}
+
+	.btn-reverse {
+		flex-direction: row-reverse;
 	}
 
 

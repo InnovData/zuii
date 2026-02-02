@@ -12,7 +12,7 @@ interface Props {
 	/**
 	 * La taille de l'icône.
 	 */
-	size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+	size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 	/**
 	 * Classe CSS additionnelle.
 	 */

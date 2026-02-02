@@ -10,6 +10,10 @@ interface Props {
 	 */
 	vertical?: boolean;
 	/**
+	 * Si le groupe doit être centré.
+	 */
+	center?: boolean;
+	/**
 	 * Label aria pour l'accessibilité.
 	 */
 	ariaLabel?: string;
@@ -40,16 +44,18 @@ export const Group = ({
 	title = "",
 	className = "",
 	gap = "md",
+	center = false,
 	ariaLabel = title ? `Groupe d'éléments ${title}` : "Groupe d'éléments",
 }: Props) => {
 
 	const verticalClass = vertical ? "group--vertical" : "";
-	const gapClass = gap !== "none" ? `group--gap-${gap}` : "";
+	const gapClass = `group--gap-${gap}`;
+	const centerClass = center ? "group--center" : "";
 
 	return (
 		<div
 			aria-label={ariaLabel}
-			className={`group ${verticalClass} ${gapClass} ${className}`.trim()}
+			className={`group ${verticalClass} ${gapClass} ${centerClass} ${className}`.trim()}
 		>
 			{children}
 		</div>
