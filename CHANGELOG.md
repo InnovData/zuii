@@ -1,3 +1,13 @@
+## [1.3.7](https://github.com/vincentm498/zuii/compare/v1.3.6...v1.3.7) (2026-02-03)
+
+
+### Bug Fixes
+
+* corrige la ponctuation dans la documentation de maintenance. ([fd059a8](https://github.com/vincentm498/zuii/commit/fd059a8d6104042507ee451de7b9be729ee7b6fd))
+* distribution templates en react ([0210c5c](https://github.com/vincentm498/zuii/commit/0210c5cd8750f651807e40e59d19ae6ffeefeacc))
+* token ([ed3b3fb](https://github.com/vincentm498/zuii/commit/ed3b3fb80947f0bf10f44b76c2ba54ecb8374578))
+* up ([d9fe09c](https://github.com/vincentm498/zuii/commit/d9fe09c5e7138947b309b970b7057f78a8e8ad2e))
+
 ## [1.3.6](https://github.com/vincentm498/zuii/compare/v1.3.5...v1.3.6) (2026-02-03)
 
 
