@@ -1,3 +1,11 @@
+## [1.2.8](https://github.com/vincentm498/zuii/compare/v1.2.7...v1.2.8) (2026-02-03)
+
+
+### Bug Fixes
+
+* ajoute les composants Divider et ContextMenu avec leurs styles et templates. ([82a7e17](https://github.com/vincentm498/zuii/commit/82a7e1799e3eb331d6efd43cca029d9edee798a0))
+* Renomme la variable d'environnement `GITHUB_TOKEN` en `GH_TOKEN` dans le workflow de release. ([9382108](https://github.com/vincentm498/zuii/commit/9382108f9e74f5b0dc7b58952e9a1aa20d0065dd))
+
 ## [1.2.7](https://github.com/vincentm498/zuii/compare/v1.2.6...v1.2.7) (2026-01-30)
 
 
