@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/vincentm498/zuii/compare/v1.2.8...v1.3.0) (2026-02-03)
+
+
+### Features
+
+* corrige la ponctuation dans le README. ([395d222](https://github.com/vincentm498/zuii/commit/395d222777f0057d33a0454807fc5e9abb616328))
+
 ## [1.2.8](https://github.com/vincentm498/zuii/compare/v1.2.7...v1.2.8) (2026-02-03)
 
 
