@@ -31,21 +31,24 @@ export const ContextMenus = () => {
 				<h3>Utilisation de données personnalisées</h3>
 				<p>Passage d'un tableau d'items spécifique avec gestion globale via `onAction`.</p>
 
-				<ContextMenu
-					className='pt-4'
-					onAction={handleAction}
-					items={[
-						{ label: "Voir les propriétés", action: "props" },
-						{ label: "Supprimer", action: "delete", disabled: true },
-						{ type: "separator", label: "" },
-						{ label: "Renommer", action: "rename" },
-						{ label: "Dupliquer", action: "duplicate" }
-					]}
-				>
-					<div style={{ padding: '1.5rem', border: '1px dashed #595959ff', borderRadius: '4px', width: 'fit-content' }}>
-						Élément avec items spécifiques (Callback global)
-					</div>
-				</ContextMenu>
+				<div style={{ height: '150px', overflow: 'auto' }}>
+					ici
+					<ContextMenu
+						className='pt-4'
+						onAction={handleAction}
+						items={[
+							{ label: "Voir les propriétés", action: "props" },
+							{ label: "Supprimer", action: "delete", disabled: true },
+							{ type: "separator", label: "" },
+							{ label: "Renommer", action: "rename" },
+							{ label: "Dupliquer", action: "duplicate" }
+						]}
+					>
+						<div style={{ padding: '1.5rem', border: '1px dashed #595959ff', borderRadius: '4px', width: 'fit-content' }}>
+							Élément avec items spécifiques (Callback global)
+						</div>
+					</ContextMenu>
+				</div>
 			</section>
 
 			<section className='p-4'>

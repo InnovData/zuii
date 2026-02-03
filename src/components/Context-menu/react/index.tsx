@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { type ContextMenuItem, executeAction, getDisplayShortcut, contextMenuData, isItemDisabled, calculatePosition } from "../js/context-menu";
+import { type ContextMenuItem, executeAction, getDisplayShortcut, contextMenuData, isItemDisabled, calculatePosition, lockScroll, unlockScroll, adjustSubMenuPosition } from "../js/context-menu";
 import '../style/index.scss';
 
 interface MenuItemProps {
@@ -16,10 +16,18 @@ interface MenuItemProps {
  */
 const MenuItem = ({ item, onAction, closeMenu }: MenuItemProps) => {
 	const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
+	const subMenuRef = useRef<HTMLDivElement>(null);
+
 	const bemClass = "context-menu";
 	const hasSubMenu = !!(item.items && item.items.length > 0);
 	const displayShortcut = getDisplayShortcut(item.shortcuts);
 	const isDisabled = isItemDisabled(item);
+
+	useEffect(() => {
+		if (isSubMenuVisible && subMenuRef.current) {
+			adjustSubMenuPosition(subMenuRef.current);
+		}
+	}, [isSubMenuVisible]);
 
 	if (item.type === "separator") {
 		return <div className={`${bemClass}__separator`} />;
@@ -41,7 +49,10 @@ const MenuItem = ({ item, onAction, closeMenu }: MenuItemProps) => {
 			{item.label}
 			{displayShortcut && <span className={`${bemClass}__shortcut`}>{displayShortcut}</span>}
 			{hasSubMenu && isSubMenuVisible && (
-				<div className={`${bemClass} ${bemClass}__sub-menu`}>
+				<div
+					ref={subMenuRef}
+					className={`${bemClass} ${bemClass}__sub-menu`}
+				>
 					{item.items!.map((subItem, index) => (
 						<MenuItem
 							key={index}
@@ -117,7 +128,7 @@ export const ContextMenu = ({
 		setIsVisible(false);
 	}, []);
 
-	// Fermer le menu au clic à l'extérieur
+	// Gérer les événements extérieurs et le défilement
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -127,10 +138,14 @@ export const ContextMenu = ({
 
 		if (isVisible) {
 			document.addEventListener("mousedown", handleClickOutside);
+			lockScroll();
+		} else {
+			unlockScroll();
 		}
 
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
+			unlockScroll();
 		};
 	}, [isVisible, closeMenu]);
 
