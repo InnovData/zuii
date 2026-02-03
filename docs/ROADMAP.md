@@ -21,6 +21,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Icon`
   - [x] `Group`
   - [x] `Avatar`
+  - [x] `Divider`
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
