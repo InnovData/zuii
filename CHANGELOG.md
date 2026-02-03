@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/vincentm498/zuii/compare/v1.3.3...v1.3.4) (2026-02-03)
+
+
+### Bug Fixes
+
+* supprime l'import Badge inutilisé ([b68133e](https://github.com/vincentm498/zuii/commit/b68133e98fa3b695025047ba5e59115da3eba98b))
+
 ## [1.3.3](https://github.com/vincentm498/zuii/compare/v1.3.2...v1.3.3) (2026-02-03)
 
 
