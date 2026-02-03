@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/vincentm498/zuii/compare/v1.3.5...v1.3.6) (2026-02-03)
+
+
+### Bug Fixes
+
+* ajoute les informations de dépôt, de bugs et de page d'accueil au package.json. ([02c4062](https://github.com/vincentm498/zuii/commit/02c40622f64482aa31809fd9c1ce2a2402ab5f36))
+
 ## [1.3.5](https://github.com/vincentm498/zuii/compare/v1.3.4...v1.3.5) (2026-02-03)
 
 
