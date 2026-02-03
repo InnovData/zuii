@@ -28,7 +28,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'pnpm' # On dit à setup-node d'utiliser le cache pnpm
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -37,6 +38,11 @@ jobs:
         run: |
           pnpm run tokens:build
           pnpm run build
+
+      - name: Verify NPM Auth
+        run: pnpm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Release
         env:
