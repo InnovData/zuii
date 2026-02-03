@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/vincentm498/zuii/compare/v1.3.4...v1.3.5) (2026-02-03)
+
+
+### Bug Fixes
+
+* jsdoc contrast ([00d13ff](https://github.com/vincentm498/zuii/commit/00d13ff329526e67a7e3f707bc398168835afd23))
+
 ## [1.3.4](https://github.com/vincentm498/zuii/compare/v1.3.3...v1.3.4) (2026-02-03)
 
 
