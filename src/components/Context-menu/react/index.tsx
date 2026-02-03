@@ -1,0 +1,165 @@
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { type ContextMenuItem, executeAction, getDisplayShortcut, contextMenuData, isItemDisabled, calculatePosition } from "../js/context-menu";
+import '../style/index.scss';
+
+interface MenuItemProps {
+	item: ContextMenuItem;
+	onAction?: (action: string) => void;
+	closeMenu: () => void;
+}
+
+/**
+ * Composant interne pour un item de menu, gérant ses propres sous-menus.
+ *
+ * @param {MenuItemProps} props - Les propriétés de l'item.
+ * @returns {JSX.Element} L'élément de menu.
+ */
+const MenuItem = ({ item, onAction, closeMenu }: MenuItemProps) => {
+	const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
+	const bemClass = "context-menu";
+	const hasSubMenu = !!(item.items && item.items.length > 0);
+	const displayShortcut = getDisplayShortcut(item.shortcuts);
+	const isDisabled = isItemDisabled(item);
+
+	if (item.type === "separator") {
+		return <div className={`${bemClass}__separator`} />;
+	}
+
+	return (
+		<div
+			className={`${bemClass}__item ${hasSubMenu ? `${bemClass}__sub-trigger` : ""} ${isDisabled ? "disabled" : ""}`.trim()}
+			onMouseEnter={() => hasSubMenu && !isDisabled && setIsSubMenuVisible(true)}
+			onMouseLeave={() => hasSubMenu && !isDisabled && setIsSubMenuVisible(false)}
+			onClick={(e) => {
+				if (!hasSubMenu && !isDisabled) {
+					e.stopPropagation();
+					executeAction(item, onAction);
+					closeMenu();
+				}
+			}}
+		>
+			{item.label}
+			{displayShortcut && <span className={`${bemClass}__shortcut`}>{displayShortcut}</span>}
+			{hasSubMenu && isSubMenuVisible && (
+				<div className={`${bemClass} ${bemClass}__sub-menu`}>
+					{item.items!.map((subItem, index) => (
+						<MenuItem
+							key={index}
+							item={subItem}
+							onAction={onAction}
+							closeMenu={closeMenu}
+						/>
+					))}
+				</div>
+			)}
+		</div>
+	);
+};
+
+interface Props {
+	/**
+	 * Les éléments du menu contextuel.
+	 */
+	items?: ContextMenuItem[];
+	/**
+	 * Fonction appelée lors du clic sur un item.
+	 */
+	onAction?: (action: string) => void;
+	/**
+	 * Le composant ou l'élément sur lequel le menu s'applique.
+	 */
+	children: React.ReactNode;
+	/**
+	 * Classe CSS additionnelle pour le conteneur.
+	 */
+	className?: string;
+}
+
+/**
+ * Composant de menu contextuel (clic droit) natif.
+ *
+ * @param {Props} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le composant ContextMenu.
+ */
+export const ContextMenu = ({
+	items = contextMenuData.items as ContextMenuItem[],
+	onAction,
+	children,
+	className = "",
+}: Props) => {
+	const [isVisible, setIsVisible] = useState(false);
+	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const menuRef = useRef<HTMLDivElement>(null);
+
+	const bemClass = "context-menu";
+
+	/**
+	 * Gère l'ouverture du menu contextuel.
+	 *
+	 * @param {React.MouseEvent} event - L'événement de souris.
+	 */
+	const handleContextMenu = useCallback((event: React.MouseEvent) => {
+		event.preventDefault();
+
+		// On affiche temporairement pour pouvoir mesurer
+		setIsVisible(true);
+
+		// Le calcul réel de position se fera via useEffect ou après le rendu si on veut être précis,
+		// mais ici on peut déjà appliquer un calcul de base basé sur le viewport.
+		const { x, y } = calculatePosition(event.clientX, event.clientY, 160, 200); // Valeurs par défaut estimées
+		setPosition({ x, y });
+	}, []);
+
+	/**
+	 * Ferme le menu.
+	 */
+	const closeMenu = useCallback(() => {
+		setIsVisible(false);
+	}, []);
+
+	// Fermer le menu au clic à l'extérieur
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+				closeMenu();
+			}
+		};
+
+		if (isVisible) {
+			document.addEventListener("mousedown", handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [isVisible, closeMenu]);
+
+	return (
+		<div
+			onContextMenu={handleContextMenu}
+			className={`context-menu-wrapper ${className}`}
+		>
+			{children}
+
+			{isVisible && (
+				<div
+					ref={menuRef}
+					className={bemClass}
+					style={{
+						top: position.y,
+						left: position.x,
+					}}
+				>
+					{items.map((item, index) => (
+						<MenuItem
+							key={index}
+							item={item}
+							onAction={onAction}
+							closeMenu={closeMenu}
+						/>
+					))}
+				</div>
+			)}
+		</div>
+	);
+};

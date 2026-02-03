@@ -1,4 +1,4 @@
-import { Button } from '../../index';
+import { Button, Group } from '../../index';
 import { tokens } from '@core/tokens';
 
 
@@ -15,23 +15,92 @@ interface Props {
  */
 export const Buttons = ({ brands }: Props) => {
 	const brandsToUse = brands || tokens.brands;
-	const variants = [
-		undefined,
-		...Object.keys(brandsToUse),
-	];
+	const brandKeys = Object.keys(brandsToUse);
+	const sizes = Object.keys(tokens.size).filter(key =>
+		["xs", "sm", "md", "lg", "xl"].includes(key)
+	);
 
 	return (
-		<div className="flex flex-col gap-2">
-			{variants.map((variant) => (
-				<Button
-					key={variant || 'default'}
-					variant={variant as any}
-					onClick={() => alert(`Cliqué ${variant || 'default'} !`)}
-					icon="icon-house"
-				>
-					Button {variant || 'default'}
-				</Button>
-			))}
+		<div className="flex flex-col gap-8">
+			{/* Variantes de marque */}
+			<Group>
+				{brandKeys.map((variant) => (
+					<Button key={variant} variant={variant}>
+						Button {variant}
+					</Button>
+				))}
+			</Group>
+
+			{/* Variantes Light & Dark */}
+			<Group >
+				{brandKeys.map((variant) => (
+					<Group key={variant} vertical center>
+						<Button variant={`${variant}-light`}>
+							{variant} light
+						</Button>
+						<Button variant={`${variant}-dark`}>
+							{variant} dark
+						</Button>
+					</Group>
+				))}
+			</Group>
+
+			{/* Variantes Outline */}
+			<Group>
+				{brandKeys.map((variant) => (
+					<Group key={variant}>
+						<Button variant={`outline-${variant}`}>
+							Outline {variant}
+						</Button>
+						<Button variant={`outline-${variant}-light`}>
+							Outline {variant} light
+						</Button>
+						<Button variant={`outline-${variant}-dark`}>
+							Outline {variant} dark
+						</Button>
+					</Group>
+				))}
+			</Group>
+
+			{/* Bouton Transparent */}
+			<section>
+				<h2 className="mb-4 text-xl font-bold">Bouton Transparent</h2>
+				<Group>
+					<Button transparent>
+						Bouton Transparent
+					</Button>
+					<Button transparent icon="icon-house">
+						Transparent avec icône
+					</Button>
+				</Group>
+			</section>
+
+			{/* Tailles */}
+			<section>
+				<h2 className="mb-4 text-xl font-bold">Tailles</h2>
+				<Group>
+					{sizes.map((size) => (
+						<Button key={size} size={size as any}>
+							Size {size}
+						</Button>
+					))}
+				</Group>
+			</section>
+
+			{/* Icônes */}
+			<section>
+				<h2 className="mb-4 text-xl font-bold">Icônes</h2>
+				<Group>
+					<Button icon="icon-house">
+						Avec icône
+					</Button>
+					<Button icon="icon-house" reverse>
+						Icône à droite
+					</Button>
+					<Button icon="icon-house" btnIcon aria-label="Home" />
+					<Button variant="outline-primary" icon="icon-house" btnIcon aria-label="Home" />
+				</Group>
+			</section>
 		</div>
 	);
 };

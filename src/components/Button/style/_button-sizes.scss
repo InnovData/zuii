@@ -11,7 +11,8 @@
 		"xl": 0.375,
 		"2xl": 0.25,
 		"3xl": 0.15,
-		"4xl": 0.14
+		"4xl": 0.14,
+		"5xl": 0.12
 	);
 
 	@each $size, $value in $spacing {

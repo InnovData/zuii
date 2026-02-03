@@ -9,8 +9,13 @@ Les tokens sont définis au format JSON et transformés en CSS, SCSS et TypeScri
 ### Structure des Fichiers Source
 
 -   **`tokens/*.json`** : Définition des tokens (source de vérité).
-    -   `colors.json` : Palette de couleurs, thèmes, variantes (primary, gray...).
+    -   `brands.json` : Couleurs de marque et sémantiques (primary, success, danger...).
+    -   `colors.json` : Palette de couleurs globale (white, black, gray scale).
+    -   `fonts.json` : Définitions des polices de caractères.
     -   `radius.json` : Rayons de bordure (border-radius).
+    -   `shadows.json` : Ombres portées (box-shadow).
+    -   `size.json` : Échelle de tailles unifiée (utilisée pour le radius, spacing, etc.).
+    -   `spacing.json` : Échelle d'espacement.
 -   **`style-dictionary/`** : Configuration du générateur et scripts de build.
 
 ### Fichiers Générés (Package Distribué)
@@ -18,7 +23,7 @@ Les tokens sont définis au format JSON et transformés en CSS, SCSS et TypeScri
 Les fichiers sont générés dans **`dist/core/styles/`** lors du build du package npm :
 -   `tokens.css` : Variables CSS (`:root { ... }`).
 -   `_tokens.scss` : Variables SCSS organisées en maps.
--   `tokens.ts` : Constantes TypeScript.
+-   `tokens.ts` : Objet de tokens structuré pour TypeScript.
 
 ## 2. Workflow de Développement
 
@@ -30,10 +35,8 @@ Les fichiers sont générés dans **`dist/core/styles/`** lors du build du packa
 **Exemple (`radius.json`) :**
 ```json
 {
-  "border": {
-    "radius": {
-      "custom": { "value": "1.5rem" }
-    }
+  "border-radius": {
+    "custom": { "value": "1.5rem" }
   }
 }
 ```
@@ -59,35 +62,38 @@ Si vous voulez voir le résultat sans faire un build complet :
 pnpm run tokens:build
 ```
 
-Les fichiers apparaîtront temporairement dans `src/core/styles/`.
+Les fichiers apparaîtront dans `src/core/styles/`.
 
 ## 3. Conventions de Nommage
 
--   **CSS** : Kebab-case (`--color-primary`, `--size-1`).
--   **TypeScript** : Constant case (`COLOR_PRIMARY`).
--   **SCSS** : Maps nommées (`$color`, `$size`).
+-   **CSS** : Kebab-case (`--primary`, `--size-1`, `--border-radius-sm`).
+-   **TypeScript** : Objet `tokens` exporté avec une structure identique au JSON (`tokens.brands.primary.value`).
+-   **SCSS** : Maps nommées selon la catégorie (`$brands`, `$color`, `$size`, `$spacing`, `$border-radius`, `$box-shadow`).
 
 ## 4. Utilisation
 
 ### Dans un projet utilisant Zuii
 
-Une fois Zuii installé, vous pouvez importer les tokens directement depuis le dossier `dist` :
+Une fois Zuii installé, vous pouvez importer les tokens directement depuis le dossier `core/styles` :
 
 ```scss
 // SCSS
-@use "zuii/dist/core/styles/tokens" as *;
+@use "zuii/core/styles/tokens" as *;
 
 .my-component {
-  background-color: map-get($color, "primary");
+  background-color: map-get($brands, "primary");
+  border-radius: map-get($border-radius, "sm");
 }
 ```
 
 ```javascript
 // TypeScript
-import { COLOR_PRIMARY } from 'zuii/dist/core/styles/tokens';
+import { tokens } from 'zuii/core/styles/tokens';
+
+const primaryColor = tokens.brands.primary.value;
 ```
 
-### Personnalisation
+### Personnalisation via CLI
 
 Si vous souhaitez générer vos propres tokens dans votre projet à partir de vos fichiers sources, utilisez l'outil CLI inclus :
 

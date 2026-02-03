@@ -1,5 +1,6 @@
-import { Icon, Group } from '../../index';
+import { Icon } from '../../index';
 import { tokens } from '@core/tokens';
+import { Group } from '../../index';
 
 interface Props {
 	/** Jetons de marque personnalisés */
@@ -13,47 +14,49 @@ interface Props {
  * @param {Props} props Les propriétés du composant.
  * @returns {JSX.Element} Le composant de démonstration des icônes.
  */
-export const Icons = ({ brands, spacing }: Props) => {
+export const Icons = ({ brands }: Props) => {
 	const brandsToUse = brands || tokens.brands;
-	const spacingToUse = spacing || tokens.spacing;
-
-	const variants = [
-		undefined,
-		...Object.keys(brandsToUse),
-	];
-
-	const sizes = [
-		undefined,
-		...Object.keys(spacingToUse),
+	const brandKeys = Object.keys(brandsToUse);
+	const sizes: ("xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl")[] = [
+		"xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"
 	];
 
 	return (
-		<>
-			<p>Couleurs d'icônes</p>
-			<Group >
-				{variants.map((variant) => (
-					<Icon
-						key={variant || 'default'}
-						name="icon-house"
-						className={`text-${variant}`}
-					/>
-				))}
-			</Group>
-			<p>Tailles d'icônes</p>
-			<Group className="flex flex-col gap-2">
-				{sizes.map((size) => (
-					<div
-						key={size || 'default'}
-						className="flex items-center gap-2"
-					>
-						<Icon
-							name="icon-house"
-							size={size as any}
-						/>
-						<p>{size}</p>
-					</div>
-				))}
-			</Group>
-		</>
+		<div className="flex flex-col gap-8">
+			<h2>Icons</h2>
+			{/* Couleurs d'icônes */}
+			<section>
+				<h2 className="mb-4 text-xl font-bold">Couleurs d'icônes</h2>
+				<Group className="flex flex-wrap gap-4 text-2xl">
+					{brandKeys.map((variant) => (
+						<Group key={variant} vertical center>
+							<Icon
+								name="icon-house"
+								className={`text-${variant}`}
+								size="lg"
+							/>
+							<span className="text-xs opacity-50">{variant}</span>
+						</Group>
+					))}
+				</Group>
+			</section>
+
+			{/* Tailles d'icônes */}
+			<section>
+				<h2 className="mb-4 text-xl font-bold">Tailles d'icônes (xs à 4xl)</h2>
+				<Group >
+					{sizes.map((size) => (
+						<Group key={size} vertical center>
+							<Icon
+								name="icon-house"
+								size={size}
+								className="text-primary"
+							/>
+							<p className="text-xs font-mono">{size}</p>
+						</Group>
+					))}
+				</Group>
+			</section>
+		</div>
 	);
 };
