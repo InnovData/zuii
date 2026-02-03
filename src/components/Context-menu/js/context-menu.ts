@@ -54,6 +54,43 @@ export const calculatePosition = (x: number, y: number, menuWidth: number, menuH
 };
 
 /**
+ * Bloque le défilement de la page.
+ */
+export const lockScroll = (): void => {
+	document.body.style.overflow = "hidden";
+};
+
+/**
+ * Débloque le défilement de la page.
+ */
+export const unlockScroll = (): void => {
+	document.body.style.overflow = "";
+};
+
+/**
+ * Ajuste la position d'un sous-menu pour qu'il reste dans le viewport.
+ *
+ * @param {HTMLElement} subMenu - L'élément sous-menu à ajuster.
+ */
+export const adjustSubMenuPosition = (subMenu: HTMLElement): void => {
+	const rect = subMenu.getBoundingClientRect();
+
+	// Ajustement de position si débordement horizontal
+	if (rect.right > window.innerWidth) {
+		subMenu.style.left = "auto";
+		subMenu.style.right = "100%";
+		subMenu.style.marginLeft = "0";
+		subMenu.style.marginRight = "2px";
+	}
+
+	// Ajustement de position si débordement vertical
+	if (rect.bottom > window.innerHeight) {
+		subMenu.style.top = "auto";
+		subMenu.style.bottom = "0";
+	}
+};
+
+/**
  * Exécute l'action associée à un item.
  *
  * @param {ContextMenuItem} item - L'item sur lequel on a cliqué.
@@ -192,6 +229,7 @@ export class ContextMenuManager {
 
 		this.menuElement.style.top = `${finalY}px`;
 		this.menuElement.style.left = `${finalX}px`;
+		lockScroll();
 
 		document.addEventListener("mousedown", this.handleOutsideClick);
 	}
@@ -203,6 +241,7 @@ export class ContextMenuManager {
 		if (this.menuElement) {
 			this.menuElement.remove();
 			this.menuElement = null;
+			unlockScroll();
 		}
 		document.removeEventListener("mousedown", this.handleOutsideClick);
 	}
@@ -277,6 +316,8 @@ export class ContextMenuManager {
 		subMenu.classList.add("context-menu__sub-menu");
 		parentEl.appendChild(subMenu);
 		this.activeSubMenus.push(subMenu);
+
+		adjustSubMenuPosition(subMenu);
 	}
 
 	/**
