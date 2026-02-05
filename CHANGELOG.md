@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/vincentm498/zuii/compare/v1.4.2...v1.4.3) (2026-02-05)
+
+
+### Bug Fixes
+
+* Ajout du script de création de composants, correction des style en doublon, Structuration de la distribution ([a4228b9](https://github.com/vincentm498/zuii/commit/a4228b9a521475f9d168cad85d6ca5b7305166d3))
+
 ## [1.4.2](https://github.com/vincentm498/zuii/compare/v1.4.1...v1.4.2) (2026-02-04)
 
 
