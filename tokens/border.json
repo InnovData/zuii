@@ -1,0 +1,14 @@
+{
+	"border": {
+		"color": { "value": "var(--primary)" },
+		"width": { "value": "2px" },
+		"style": { "value": "solid" },
+		"radius": { "value": "var(--radius-pill)" },
+		"radius-sm": { "value": "var(--radius-xs)" },
+		"radius-lg": { "value": "var(--radius-lg)" },
+		"radius-xl": { "value": "var(--radius-xl)" },
+		"radius-xxl": { "value": "var(--radius-xxl)" },
+		"radius-2xl": { "value": "var(--radius-2xl)" },
+		"radius-pill": { "value": "var(--radius-pill)" }
+	}
+}

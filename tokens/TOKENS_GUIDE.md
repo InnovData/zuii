@@ -16,7 +16,7 @@ Les tokens sont définis au format JSON et transformés en CSS, SCSS et TypeScri
     -   `shadows.json` : Ombres portées (box-shadow).
     -   `size.json` : Échelle de tailles unifiée (utilisée pour le radius, spacing, etc.).
     -   `spacing.json` : Échelle d'espacement.
--   **`style-dictionary/`** : Configuration du générateur et scripts de build.
+-   **`scripts/tokens/`** : Configuration du générateur et scripts de build.
 
 ### Fichiers Générés (Package Distribué)
 

@@ -20,7 +20,10 @@
 		"gray-dark-alias": {
 			"value": "{color.gray.800}",
 			"name": "gray-dark"
-		}
+		},
+		"body-color": { "value": "var(--primary)" },
+		"body-bg-percentage": { "value": "95%" },
+		"body-bg": { "value": "color-mix(in srgb, var(--primary), var(--white) var(--body-bg-percentage))" }
 
 	}
 }

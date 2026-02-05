@@ -27,7 +27,8 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Context-menu`
   - [x] `Lang-selector` (Choices.js)
   - [x] `FloatingLabel` (Option Form)
-  - [ ] `Multi-select` (avec Choices.js)
+  - [x] `Multi-select` (avec Choices.js)
+  - [x] `TelInput` (avec intl-tel-input)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`

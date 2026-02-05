@@ -1,3 +1,2 @@
-
-@use "@core/tokens.scss" as *;
 @use "@core/base.scss";
+@import "@core/tokens.css" layer(components);
