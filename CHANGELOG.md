@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/vincentm498/zuii/compare/v1.4.3...v1.4.4) (2026-02-05)
+
+
+### Bug Fixes
+
+* path tokens et import apca-w3 en dependencies ([3ba0dd7](https://github.com/vincentm498/zuii/commit/3ba0dd7816482f6e0d1bc2bbdcba9ae54230b7dd))
+
 ## [1.4.3](https://github.com/vincentm498/zuii/compare/v1.4.2...v1.4.3) (2026-02-05)
 
 
