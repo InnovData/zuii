@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/vincentm498/zuii/compare/v1.4.5...v1.4.6) (2026-02-06)
+
+
+### Bug Fixes
+
+* Ajoute les tokens de rayon 'xl' et '2xl', le variant 'none' et une vérification de nullité pour les tokens de rayon. ([e6f060a](https://github.com/vincentm498/zuii/commit/e6f060aa9606a43dcd5eec80341b7c212fd16628))
+
 ## [1.4.5](https://github.com/vincentm498/zuii/compare/v1.4.4...v1.4.5) (2026-02-06)
 
 
