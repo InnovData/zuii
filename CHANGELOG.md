@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/vincentm498/zuii/compare/v1.4.4...v1.4.5) (2026-02-06)
+
+
+### Bug Fixes
+
+* update version ([3788c55](https://github.com/vincentm498/zuii/commit/3788c559b4eb0a05d33d32a5a8adec0a23a389be))
+
 ## [1.4.4](https://github.com/vincentm498/zuii/compare/v1.4.3...v1.4.4) (2026-02-05)
 
 
