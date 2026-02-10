@@ -29,6 +29,10 @@ interface Props {
 	 * Espacement entre les éléments (gap).
 	 */
 	gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl";
+	/**
+	 * Alignement des éléments.
+	 */
+	align?: "start" | "end" | "center";
 }
 
 /**
@@ -46,16 +50,18 @@ export const Group = ({
 	gap = "md",
 	center = false,
 	ariaLabel = title ? `Groupe d'éléments ${title}` : "Groupe d'éléments",
+	align = "start",
 }: Props) => {
 
 	const verticalClass = vertical ? "group--vertical" : "";
 	const gapClass = `group--gap-${gap}`;
 	const centerClass = center ? "group--center" : "";
+	const alignClass = align ? `group--${align}` : "";
 
 	return (
 		<div
 			aria-label={ariaLabel}
-			className={`group ${verticalClass} ${gapClass} ${centerClass} ${className}`.trim()}
+			className={`group ${verticalClass} ${gapClass} ${centerClass} ${alignClass} ${className}`.trim()}
 		>
 			{children}
 		</div>
