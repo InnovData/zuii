@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@ag-grid-community/locale':
+        specifier: ^35.0.1
+        version: 35.0.1
+      ag-grid-community:
+        specifier: ^35.0.1
+        version: 35.0.1
+      ag-grid-react:
+        specifier: ^35.0.1
+        version: 35.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       apca-w3:
         specifier: ^0.1.9
         version: 0.1.9
@@ -38,9 +47,6 @@ importers:
       style-dictionary:
         specifier: ^4.2.0
         version: 4.4.0(tslib@2.8.1)
-      tom-select:
-        specifier: ^2.4.5
-        version: 2.4.5
     devDependencies:
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -107,6 +113,9 @@ packages:
 
   '@actions/io@2.0.0':
     resolution: {integrity: sha512-Jv33IN09XLO+0HS79aaODsvIRyduiF7NY/F6LYeK5oeUmrsz7aFdRphQjFoESF4jS7lMauDOttKALcpapVDIAg==}
+
+  '@ag-grid-community/locale@35.0.1':
+    resolution: {integrity: sha512-cBOEtxo9NStW1WaSlX8oBZYm1KaEBmSKpdKa9mlI8fojgvgcO6tf15MDouVHqdeRw+Z4gKr5thal8I5yK3Pxxg==}
 
   '@ast-grep/napi-darwin-arm64@0.36.3':
     resolution: {integrity: sha512-uM0Hrm5gcHqaBL64ktmPBFMTorTlPKWsUfi0E2Cg09GJfeYWvZmicCqgd7qVtjURmQvFQdb4JSqHIkJvws6Uqw==}
@@ -634,12 +643,6 @@ packages:
   '@octokit/types@16.0.0':
     resolution: {integrity: sha512-sKq+9r1Mm4efXW1FCk7hFSeJo4QKreL/tTbR0rz/qx/r1Oa2VV83LTA/H/MuCOX7uCIJmQVRKBcbmWoySjAnSg==}
 
-  '@orchidjs/sifter@1.1.0':
-    resolution: {integrity: sha512-mYwHCfr736cIWWdhhSZvDbf90AKt2xyrJspKFC3qyIJG1LtrJeJunYEqCGG4Aq2ijENbc4WkOjszcvNaIAS/pQ==}
-
-  '@orchidjs/unicode-variants@1.1.2':
-    resolution: {integrity: sha512-5DobW1CHgnBROOEpFlEXytED5OosEWESFvg/VYmH0143oXcijYTprRYJTs+55HzGM4IqxiLFSuqEzu9mPNwVsA==}
-
   '@parcel/watcher-android-arm64@2.5.6':
     resolution: {integrity: sha512-YQxSS34tPF/6ZG7r/Ih9xy+kP/WwediEUsqmtf0cuCV5TPPKw/PQHRhueUo6JdeFJaqV3pyjm0GdYjZotbRt/A==}
     engines: {node: '>= 10.0.0'}
@@ -1086,6 +1089,18 @@ packages:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  ag-charts-types@13.0.1:
+    resolution: {integrity: sha512-qg9adyiAaeUaDtWZEEPF45dv55kdJTe6Ghi0EQXCS79h/7KvOd6dxhqGZjPL1zeFl/L9qEXuYgb+LkGStq4mgQ==}
+
+  ag-grid-community@35.0.1:
+    resolution: {integrity: sha512-fYYZdymWKsN9/tZv+R6uZRnuiWYEQr+GHl85ZrB0ixbFcE8opYK4NJI29NnMc9ShYiCBnAO9hj54IFa+FI4aDA==}
+
+  ag-grid-react@35.0.1:
+    resolution: {integrity: sha512-NvrrgWUm+DsnsZVFho16srlyBNKSl9nqeSadk63HpHYerq4S4vN/2JCxdNtfqns7SpbYx7GbasbMFCXKYj7Qaw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   agent-base@7.1.4:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
@@ -2879,9 +2894,6 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tom-select@2.4.5:
-    resolution: {integrity: sha512-ujZ5P10kRohKDFElklhkO4dRM+WkUEaytHhOuzbQkZ6MyiR8e2IwGKXab4v+ZNipE2queN8ztlb0MmRLqoM6QA==}
-
   traverse@0.6.8:
     resolution: {integrity: sha512-aXJDbk6SnumuaZSANd21XAo15ucCDE38H4fkqiGsc3MhCK+wOlZvLP9cB/TvpHT0mOyWgC4Z8EwRlzqYSUzdsA==}
     engines: {node: '>= 0.4'}
@@ -3152,6 +3164,8 @@ snapshots:
       undici: 6.23.0
 
   '@actions/io@2.0.0': {}
+
+  '@ag-grid-community/locale@35.0.1': {}
 
   '@ast-grep/napi-darwin-arm64@0.36.3':
     optional: true
@@ -3672,12 +3686,6 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 27.0.0
 
-  '@orchidjs/sifter@1.1.0':
-    dependencies:
-      '@orchidjs/unicode-variants': 1.1.2
-
-  '@orchidjs/unicode-variants@1.1.2': {}
-
   '@parcel/watcher-android-arm64@2.5.6':
     optional: true
 
@@ -4136,6 +4144,19 @@ snapshots:
   '@zip.js/zip.js@2.8.16': {}
 
   acorn@8.15.0: {}
+
+  ag-charts-types@13.0.1: {}
+
+  ag-grid-community@35.0.1:
+    dependencies:
+      ag-charts-types: 13.0.1
+
+  ag-grid-react@35.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      ag-grid-community: 35.0.1
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
 
   agent-base@7.1.4: {}
 
@@ -5883,11 +5904,6 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  tom-select@2.4.5:
-    dependencies:
-      '@orchidjs/sifter': 1.1.0
-      '@orchidjs/unicode-variants': 1.1.2
 
   traverse@0.6.8: {}
 

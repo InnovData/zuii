@@ -54,6 +54,9 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"dependencies": {
+		"@ag-grid-community/locale": "^35.0.1",
+		"ag-grid-community": "^35.0.1",
+		"ag-grid-react": "^35.0.1",
 		"apca-w3": "^0.1.9",
 		"bootstrap": "^5.3.8",
 		"choices.js": "^11.1.0",
@@ -63,8 +66,7 @@
 		"lucide-static": "^0.563.0",
 		"react-bootstrap": "^2.10.10",
 		"sass-embedded": "^1.97.3",
-		"style-dictionary": "^4.2.0",
-		"tom-select": "^2.4.5"
+		"style-dictionary": "^4.2.0"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",

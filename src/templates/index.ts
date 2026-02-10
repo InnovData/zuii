@@ -15,3 +15,4 @@ export * from './Logos/Logos';
 export * from './Modals/Modals';
 export * from './Placeholders/Placeholders';
 export * from './Tooltips/Tooltips';
+export * from './Tables/Tables';

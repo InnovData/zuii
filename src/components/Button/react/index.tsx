@@ -47,7 +47,7 @@ export const Button = ({
 	className = "",
 
 	...props
-}: Props & ButtonProps) => {
+}: Props) => {
 
 	const customSizeClass = size ? `btn-${size}` : "";
 

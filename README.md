@@ -38,13 +38,12 @@ npm install zuii
 
 1.  **`vendor`** (Priorité basse) : Pour les frameworks externes (ex: Bootstrap).
 2.  **`components`** : Pour les composants **zuii**.
-3.  **`utilities`** : Pour les classes utilitaires de **zuii**.
+3.  **`layout`** : Pour les styles de bas niveau de **zuii**.
+4.  **`utilities`** : Pour les classes utilitaires de **zuii**.
 
 #### Exemple d'implémentation dans votre `main.scss` :
 
 ```scss
-@layer vendor, components, utilities;
-
 $prefix: "";
 $enable-important-utilities: false;
 

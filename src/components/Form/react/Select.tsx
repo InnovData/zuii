@@ -38,6 +38,10 @@ interface Props {
 	 */
 	disabled?: boolean;
 	/**
+	 * Activer/Désactiver la recherche (par défaut: true).
+	 */
+	searchable?: boolean;
+	/**
 	 * Classe CSS additionnelle.
 	 */
 	className?: string;
@@ -56,6 +60,7 @@ export const Select = ({
 	multiple = false,
 	placeholder = "Sélectionnez une option",
 	disabled = false,
+	searchable = true,
 	className = "",
 }: Props) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
@@ -78,6 +83,7 @@ export const Select = ({
 				choices: choicesOptions,
 				removeItemButton: multiple,
 				placeholderValue: placeholder,
+				searchEnabled: searchable,
 				silent: true
 			}, onChange);
 		}
