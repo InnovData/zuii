@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/vincentm498/zuii/compare/v1.4.7...v1.4.8) (2026-02-10)
+
+
+### Bug Fixes
+
+* Améliore le positionnement du menu contextuel avec des décalages et ajoute la gestion des clics aux éléments de menu déroulant. ([4591157](https://github.com/vincentm498/zuii/commit/45911574548fdb3e98c2fa1cb860c7af20d6bbe1))
+
 ## [1.4.7](https://github.com/vincentm498/zuii/compare/v1.4.6...v1.4.7) (2026-02-10)
 
 
