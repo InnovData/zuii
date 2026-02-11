@@ -35,6 +35,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Dropdown` (React Bootstrap)
   - [x] `Radius`
   - [x] `Accordion` (React Bootstrap)
+  - [x] `Tabs` (React Bootstrap)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
