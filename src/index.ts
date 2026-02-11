@@ -17,4 +17,6 @@ export * from './components/Modal/react';
 export * from './components/Placeholder/react';
 export * from './components/Tooltip/react';
 export * from './components/Table/react';
+export * from './components/Accordion/react';
 export * from './components/Tab/react';
+
