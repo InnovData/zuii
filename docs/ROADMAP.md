@@ -47,7 +47,7 @@ L'objectif est de poser des bases solides pour la librairie.
 
 ### 🔵 Phase 3 : Composants Avancés
 - [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.
-- [ ] **Feedback** : `Toast`, `Alert`, `Spinner`.
+- [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner`.
 - [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`.
 
 ### 🟣 Phase 4 : Écosystème & Qualité
