@@ -1,3 +1,10 @@
+## [1.4.10](https://github.com/vincentm498/zuii/compare/v1.4.9...v1.4.10) (2026-02-13)
+
+
+### Bug Fixes
+
+* Ajout des input et Alert ([6e65532](https://github.com/vincentm498/zuii/commit/6e65532be8c0a82eb20ae0251863377e7883dabf))
+
 ## [1.4.9](https://github.com/vincentm498/zuii/compare/v1.4.8...v1.4.9) (2026-02-11)
 
 
