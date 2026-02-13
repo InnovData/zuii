@@ -21,13 +21,29 @@ export const FormsElements = () => {
 			<h2>Liste des inputs disponibles</h2>
 
 			<form action="" onSubmit={handleSubmit}>
-				<Form.Control type="text" placeholder="Enter text" name="text" />
-				<Form.Control type="search" placeholder="Enter search" name="search" />
-				<Form.Control type="email" placeholder="Enter email" name="email" />
-				<Form.Control type="number" placeholder="Enter number" name="number" />
-				<Form.Control type="file" placeholder="Enter file" name="file" />
-				<Form.Control type="checkbox" placeholder="Enter checkbox" name="checkbox" />
-				<Form.Control type="radio" placeholder="Enter radio" name="radio" />
+				<Form.Control id="text" type="text" placeholder="Enter text" name="text" icon="icon-user" />
+				<Form.Control id="search" type="search" placeholder="Enter search" name="search" icon="icon-search" />
+				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
+				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />
+				{/* <Form.File id="file-simple" label="Upload simple" name="file_simple" /> */}
+				<Form.File
+					id="simple-upload"
+					name="simple-upload"
+					maxNumberOfFiles={1}
+					onComplete={(result: any) => console.log("Fichiers téléchargés :", result)}
+				/>
+				<Form.File
+					id="mon-uploader"
+					name="mon-uploader"
+					maxNumberOfFiles={5}
+					maxFileSize={5 * 1024 * 1024}
+					onComplete={(result: any) => console.log("Fichiers téléchargés :", result)}
+				/>
+				{/* <Form.File id="file-multiple" label="Upload multiple" name="file_multiple" multiple={true} maxFiles={5} /> */}
+				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
+				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
+				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
+				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio"  />
 				<Form.Select name="select" value={value} onChange={(value) => setValue(value)} options={[
 					{
 						text: 'Option 1',

@@ -55,6 +55,10 @@
 	},
 	"dependencies": {
 		"@ag-grid-community/locale": "^35.0.1",
+		"@uppy/core": "^5.2.0",
+		"@uppy/dashboard": "^5.1.1",
+		"@uppy/locales": "^5.1.1",
+		"@uppy/react": "^5.2.0",
 		"ag-grid-community": "^35.0.1",
 		"ag-grid-react": "^35.0.1",
 		"apca-w3": "^0.1.9",
