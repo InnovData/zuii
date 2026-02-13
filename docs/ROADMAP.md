@@ -36,6 +36,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Radius`
   - [x] `Accordion` (React Bootstrap)
   - [x] `Tabs` (React Bootstrap)
+  - [ ] `FileInput` (Uppy)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
