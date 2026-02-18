@@ -1,3 +1,11 @@
+## [1.4.12](https://github.com/vincentm498/zuii/compare/v1.4.11...v1.4.12) (2026-02-18)
+
+
+### Bug Fixes
+
+* Ajout du module d'authentification et des styles du composant Link, avec des améliorations aux composants Form, Group et Tab. ([01329ec](https://github.com/vincentm498/zuii/commit/01329ecfeb995880114daf81ee0744118f7b1119))
+* dep ([6959334](https://github.com/vincentm498/zuii/commit/6959334c57640fa36180628a7461611e185d7e77))
+
 ## [1.4.11](https://github.com/vincentm498/zuii/compare/v1.4.10...v1.4.11) (2026-02-17)
 
 
