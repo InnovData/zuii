@@ -1,3 +1,10 @@
+## [1.4.15](https://github.com/vincentm498/zuii/compare/v1.4.14...v1.4.15) (2026-03-03)
+
+
+### Bug Fixes
+
+* Améliore le composant Select avec une variante pays et des drapeaux, introduit un contexte de taille pour les icônes, et ajoute un placeholder de type input. ([cd74f06](https://github.com/vincentm498/zuii/commit/cd74f061a63cb770beb3d012eaabd5bfebaa99f8))
+
 ## [1.4.14](https://github.com/vincentm498/zuii/compare/v1.4.13...v1.4.14) (2026-02-20)
 
 
