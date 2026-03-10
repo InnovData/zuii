@@ -1,3 +1,10 @@
+## [1.4.18](https://github.com/vincentm498/zuii/compare/v1.4.17...v1.4.18) (2026-03-10)
+
+
+### Bug Fixes
+
+* Introduce FormDate and FormColor components, add responsive grid gap options, and enhance existing form inputs. ([f311d72](https://github.com/vincentm498/zuii/commit/f311d72fa0b5c0f1910ef931d8930da749ec8766))
+
 ## [1.4.17](https://github.com/vincentm498/zuii/compare/v1.4.16...v1.4.17) (2026-03-06)
 
 
