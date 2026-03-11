@@ -22,6 +22,20 @@
 		&--gap-none {
 			gap: 0;
 		}
+
+		// Positions flexbox : map (nom => justify-content) x (nom => align-items)
+		$h-positions: (left: flex-start, center: center, right: flex-end);
+		$v-positions: (top: flex-start, center: center, bottom: flex-end);
+
+		@each $v-name, $align in $v-positions {
+			@each $h-name, $justify in $h-positions {
+				$suffix: if($v-name == $h-name, $v-name, #{$v-name}-#{$h-name});
+				&--#{$suffix} {
+					justify-content: $justify;
+					align-items: $align;
+				}
+			}
+		}
 	}
 
 	.group--center {

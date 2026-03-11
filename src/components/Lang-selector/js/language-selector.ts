@@ -19,6 +19,7 @@ export interface LanguageOption {
  * @param {(value: string) => void} onChange - Callback appelé lors du changement de langue.
  * @param {boolean} searchEnabled - Active la recherche.
  * @param {string} placeholder - Texte affiché quand aucune option n'est sélectionnée.
+ * @param {boolean} preventHtmlLangUpdate - Si vrai, empêche la mise à jour de l'attribut `lang` de la balise `<html>` lors du changement de langue.
  * @returns {Choices} L'instance de Choices.js.
  */
 export const initLanguageSelector = (
@@ -26,7 +27,8 @@ export const initLanguageSelector = (
 	options: LanguageOption[],
 	onChange?: (value: string) => void,
 	searchEnabled: boolean = false,
-	placeholder: string = ''
+	placeholder: string = '',
+	preventHtmlLangUpdate: boolean = false
 ): Choices => {
 	// S'assurer que l'élément est vide pour éviter les doublons si Choices est ré-initialisé
 	element.innerHTML = '';
@@ -80,7 +82,9 @@ export const initLanguageSelector = (
 	if (onChange) {
 		const handleChange = (event: any) => {
 			const value = event.detail.value;
-			document.documentElement.lang = value;
+			if (!preventHtmlLangUpdate) {
+				document.documentElement.lang = value;
+			}
 			onChange(value);
 		};
 		element.addEventListener('change', handleChange);

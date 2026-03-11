@@ -43,7 +43,8 @@ export const Table = ({
 	icons,
 	emptyRowsHeight = '2rem',
 	rowHeight = 25,
-	getRowHeight
+	getRowHeight,
+	isRowSelectable
 }: Props) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
@@ -140,7 +141,8 @@ export const Table = ({
 						headerCheckbox: true,
 						checkboxes: true,
 						enableSelectionWithoutKeys: true,
-						enableClickSelection: false
+						enableClickSelection: false,
+						isRowSelectable: isRowSelectable
 					} as any : undefined}
 					selectionColumnDef={selectable ? {
 						pinned: 'left',

@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import { Splide, SplideSlide, SplideProps } from '@splidejs/react-splide';
 import '../style/index.scss';
 import { getSliderOptions } from '../js/slider';

@@ -32,7 +32,11 @@ interface Props {
 	/**
 	 * Alignement des éléments.
 	 */
-	align?: "start" | "end" | "center" | "between";
+	align?: "start" | "end" | "between" | "top-left" | "top-center" | "top-right" | "center-left" | "center" | "center-right" | "bottom-left" | "bottom-center" | "bottom-right";
+	/**
+	 * Style CSS inline.
+	 */
+	style?: React.CSSProperties;
 }
 
 /**
@@ -51,6 +55,7 @@ export const Group = ({
 	center = false,
 	ariaLabel = title ? `Groupe d'éléments ${title}` : "Groupe d'éléments",
 	align = "start",
+	style,
 }: Props) => {
 
 	const verticalClass = vertical ? "group--vertical" : "";
@@ -60,6 +65,7 @@ export const Group = ({
 
 	return (
 		<div
+			style={style}
 			aria-label={ariaLabel}
 			className={`group ${verticalClass} ${gapClass} ${centerClass} ${alignClass} ${className}`.trim()}
 		>

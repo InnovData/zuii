@@ -49,6 +49,10 @@ export interface TableOptions {
 	 */
 	selectable?: boolean;
 	/**
+	 * Fonction pour déterminer si une ligne est sélectionnable.
+	 */
+	isRowSelectable?: (node: any) => boolean;
+	/**
 	 * Active la pagination.
 	 */
 	pagination?: boolean;
@@ -174,7 +178,8 @@ export const initTable = (
 		suppressMovableColumns = true,
 		suppressMenuHide = true,
 		sortable = false,
-		icons
+		icons,
+		isRowSelectable
 	} = options;
 
 	// Ajouter les classes CSS
@@ -200,7 +205,8 @@ export const initTable = (
 			headerCheckbox: true,
 			checkboxes: true,
 			enableSelectionWithoutKeys: true,
-			enableClickSelection: false
+			enableClickSelection: false,
+			isRowSelectable: isRowSelectable
 		} as any : undefined,
 		selectionColumnDef: selectable ? {
 			pinned: 'left',

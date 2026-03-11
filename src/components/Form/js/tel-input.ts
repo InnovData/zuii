@@ -33,3 +33,47 @@ export const watchLanguageChange = (
 
 	return observer;
 };
+
+/**
+ * Supprime visuellement les zéros initiaux du champ input visible, si applicable (ex: "fr").
+ * @param {HTMLInputElement} inputElement - L'élément input visible.
+ * @param {string} country - Le code du pays sélectionné.
+ */
+export const removeLeadingZeros = (inputElement: HTMLInputElement, country: string): void => {
+	if (country === "fr" && inputElement.value.startsWith("0")) {
+		inputElement.value = inputElement.value.replace(/^0+/, "");
+	}
+};
+
+/**
+ * Met à jour la valeur de l'input caché en ajoutant un "0" initial si nécessaire pour le pays (ex: "fr").
+ * @param {HTMLInputElement} visibleInput - L'élément input visible.
+ * @param {HTMLInputElement} hiddenInput - L'élément input caché qui sera soumis.
+ * @param {string} country - Le code du pays sélectionné.
+ */
+export const updateHiddenInputValue = (
+	visibleInput: HTMLInputElement,
+	hiddenInput: HTMLInputElement,
+	country: string
+): void => {
+	let val = visibleInput.value;
+	if (country === "fr" && val && !val.startsWith("0") && !val.startsWith("+")) {
+		val = "0" + val;
+	}
+	hiddenInput.value = val;
+};
+
+/**
+ * Formate le numéro en s'assurant qu'il commence par un "0" si le pays le requiert (ex: "fr").
+ * @param {string} internationalNumber - Le numéro fourni par intl-tel-input.
+ * @param {string} country - Le code du pays sélectionné.
+ * @returns {string} Le numéro formaté.
+ */
+export const formatInternationalNumber = (internationalNumber: string, country: string): string => {
+	let val = internationalNumber;
+	// Si le numéro est censé être national français mais qu'il manque le 0
+	if (country === "fr" && val && !val.startsWith("+") && !val.startsWith("0")) {
+		val = "0" + val;
+	}
+	return val;
+};

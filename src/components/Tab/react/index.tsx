@@ -156,7 +156,7 @@ export const Tabs: TabsComponent = ({
 			<BootstrapTabs
 				activeKey={currentActiveKey}
 				onSelect={handleSelect}
-				{...{ contentClassName } as any}
+				// {...{ contentClassName } as any}
 				{...props}
 			>
 				{items.length > 0 ? (
