@@ -103,6 +103,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 	};
 
 	return (
+		<>
 		<div className={`form__input ${className}`.trim()}>
 			{icon && <Icon name={icon} size="sm" />}
 			<BootstrapForm.Control
@@ -110,8 +111,8 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 				ref={visibleInputRef}
 				autoComplete="off"
 				value={inputVal}
+				onChange={(e) => setInputVal(e.target.value)}
 				onClick={handleOpen}
-				readOnly
 				disabled={disabled}
 				placeholder={placeholder}
 				className="form-date-control"
@@ -119,9 +120,10 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 
 			<span ref={positionRef} className="form-date-anchor"></span>
 
-			<input ref={hiddenPickerRef} style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
-			<input type="hidden" name={name} value={formatHiddenDateValue(inputVal, separator, flatpickrInstance.current)} />
 		</div>
+		<input ref={hiddenPickerRef} style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
+		<input type="hidden" name={name} value={formatHiddenDateValue(inputVal, separator, flatpickrInstance.current)} />
+		</>
 	);
 });
 

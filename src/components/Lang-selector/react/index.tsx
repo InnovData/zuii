@@ -32,6 +32,11 @@ interface Props {
 	 * @default true
 	 */
 	hasDefault?: boolean;
+	/**
+	 * Si vrai, empêche la mise à jour de l'attribut `lang` de la balise `<html>` lors du changement de langue.
+	 * @default false
+	 */
+	preventHtmlLangUpdate?: boolean;
 }
 
 /**
@@ -47,7 +52,8 @@ export const LangSelector = ({
 	className = '',
 	search = false,
 	placeholder = '',
-	hasDefault = true
+	hasDefault = true,
+	preventHtmlLangUpdate = false
 }: Props) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
@@ -74,7 +80,8 @@ export const LangSelector = ({
 				updatedOptions,
 				onChange,
 				search,
-				placeholder
+				placeholder,
+				preventHtmlLangUpdate
 			);
 		}
 

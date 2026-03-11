@@ -5,5 +5,8 @@ $enable-important-utilities: false;
 	@import "lucide-static/font/lucide.scss";
 	@import "bootstrap/scss/bootstrap";
 	@import '@splidejs/react-splide/css';
+
 }
+
+@import "intl-tel-input/build/css/intlTelInput.css" layer(vendor);
 

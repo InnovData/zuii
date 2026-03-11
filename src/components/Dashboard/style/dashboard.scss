@@ -1,6 +1,6 @@
 .dashboard {
 	--dashboard-nav-width: 90px;
-	--dashboard-padding: var(--spacing-md);
+	--dashboard-padding: .8rem;
 
 	display: flex;
 	height: 100vh;
@@ -12,13 +12,17 @@
 	flex-direction: column;
 	background: var(--primary);
 	color: var(--white);
-	padding: var(--dashboard-padding) 0;
+	padding: 1rem 0;
 	width: var(--dashboard-nav-width);
 	gap: var(--spacing-lg);
 
 	& > :first-child{
 		flex: 1;
 		overflow-y: auto;
+	}
+
+	.nav{
+		--font-size: .7rem;
 	}
 }
 

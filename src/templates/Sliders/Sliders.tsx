@@ -1,4 +1,3 @@
-import React from 'react';
 import { Slider, SliderItem, Card, Button } from '../../index';
 
 /**

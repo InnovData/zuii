@@ -27,3 +27,4 @@ export * from './Loaders/Loaders';
 export * from './Grids/Grids';
 export * from './Sliders/Sliders';
 export * from './Cards/Cards';
+export * from './Groups/Groups';

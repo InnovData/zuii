@@ -150,10 +150,10 @@ export const Forms = () => {
 					maxNumberOfFiles={5}
 					maxFileSize={5 * 1024 * 1024} // 5 MB
 					allowedFileTypes={['image/*', 'application/pdf']}
-					onComplete={(result) => {
+					onComplete={(result: any) => {
 						console.log('Téléchargement terminé:', result);
 					}}
-					onError={(error) => {
+					onError={(error: any) => {
 						console.error('Erreur de téléchargement:', error);
 					}}
 				/>

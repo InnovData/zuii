@@ -7,7 +7,7 @@ import { TelInput } from "./TelInput";
 import { PasswordInput } from "./PasswordInput";
 import { PasswordConfirm } from "./PasswordConfirm";
 import { RangeInput } from "./RangeInput";
-// import { FileInput } from "./FileInput";
+import { FileInput } from "./FileInput";
 import { Select } from "./Select";
 import { handleNumericKeyDown } from "../js/number";
 import { FormColor } from "./FormColor";

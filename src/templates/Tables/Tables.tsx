@@ -92,6 +92,15 @@ export const Tables = () => {
 				<h5 className='mt-5'>Sélection Multi-lignes</h5>
 				<Table rowData={dataSimple} columnDefs={columnsSimple} selectable={true} />
 
+				<h5 className='mt-5'>Sélection Désactivée (isRowSelectable)</h5>
+				<p className="text-muted mb-4">Exemple avec des lignes spécifiques non sélectionnables (ici, seuls les ID impairs sont sélectionnables).</p>
+				<Table 
+					rowData={dataSimple} 
+					columnDefs={columnsSimple} 
+					selectable={true} 
+					isRowSelectable={(node) => node.data ? node.data.id % 2 !== 0 : false} 
+				/>
+
 				<h5 className='mt-5'>Avancé : Actions, Pagination et Redimensionnement</h5>
 				<Table rowData={dataAdvanced} columnDefs={columnsAdvanced} selectable={true} resizable={true} pagination />
 

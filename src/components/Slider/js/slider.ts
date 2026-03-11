@@ -1,3 +1,4 @@
+// @ts-ignore
 import { SplideProps } from '@splidejs/react-splide';
 
 /**

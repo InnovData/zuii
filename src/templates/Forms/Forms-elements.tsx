@@ -92,7 +92,11 @@ export const FormsElements = () => {
 				]} />
 				<Form.Date />
 				<Form.Color />
-
+				<Form.Group className="mb-3">
+					<Form.Label>Label</Form.Label>
+					<Form.Control as="textarea" rows={3} placeholder="Placeholder" />
+				</Form.Group>
+				<Form.Tel name='tel-test' nameFormat='tel-test-format' />
 				<Form.Control type="submit" value="Submit" />
 			</form>
 

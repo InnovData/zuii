@@ -38,7 +38,6 @@ export const Loader = ({
 	children,
 	color = "primary",
 	style,
-	src,
 }: Props) => {
 	const loaderRef = useRef<HTMLDivElement>(null);
 	const baseClass = "loader";
