@@ -1,3 +1,10 @@
+## [1.4.19](https://github.com/vincentm498/zuii/compare/v1.4.18...v1.4.19) (2026-03-11)
+
+
+### Bug Fixes
+
+* introduce TelInput component, add Groups template with flexbox utilities, and enhance form and table styling. ([afaf726](https://github.com/vincentm498/zuii/commit/afaf7260d03d321a9d2a1be963cdd8d6f036de12))
+
 ## [1.4.18](https://github.com/vincentm498/zuii/compare/v1.4.17...v1.4.18) (2026-03-10)
 
 
