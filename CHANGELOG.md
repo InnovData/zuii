@@ -1,3 +1,10 @@
+## [1.4.20](https://github.com/vincentm498/zuii/compare/v1.4.19...v1.4.20) (2026-03-12)
+
+
+### Bug Fixes
+
+* Remove default `gap` and `align` prop values from Grid and Group components, and add padding to select items. ([fafd36e](https://github.com/vincentm498/zuii/commit/fafd36e7a25de3d018de8bd817d2f9de9ebae331))
+
 ## [1.4.19](https://github.com/vincentm498/zuii/compare/v1.4.18...v1.4.19) (2026-03-11)
 
 
