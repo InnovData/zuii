@@ -1,3 +1,10 @@
+## [1.4.22](https://github.com/vincentm498/zuii/compare/v1.4.21...v1.4.22) (2026-03-13)
+
+
+### Bug Fixes
+
+* Introduce Uppy FileInput component with image compression, editing, and native form integration. ([ce2aefd](https://github.com/vincentm498/zuii/commit/ce2aefd2eddb455b820726eb93d176eb83c93c1b))
+
 ## [1.4.21](https://github.com/vincentm498/zuii/compare/v1.4.20...v1.4.21) (2026-03-13)
 
 
