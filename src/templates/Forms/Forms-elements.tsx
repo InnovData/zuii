@@ -18,6 +18,9 @@ export const FormsElements = () => {
 		console.log(formData.getAll('selectMultiple[]'));
 		const tousLesFichiers = formData.getAll('file-dashboard[]');
 		console.log(tousLesFichiers); // Affiche [File, File]
+
+		const fileTest = formData.get('file-test');
+		console.log(fileTest);
 	}
 
 	return (
@@ -105,6 +108,8 @@ export const FormsElements = () => {
 				</Form.Group>
 				<Form.Tel name='tel-test' nameFormat='tel-test-format' />
 				<Form.Control type="submit" value="Submit" />
+
+				<input type="file" name="file-test" id="file-test" />
 			</form>
 
 		</div>
