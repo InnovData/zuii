@@ -1,3 +1,10 @@
+## [1.4.23](https://github.com/vincentm498/zuii/compare/v1.4.22...v1.4.23) (2026-03-16)
+
+
+### Bug Fixes
+
+* Implement sticky menu with responsive styling adjustments and add a file input test to forms. ([c4dac8d](https://github.com/vincentm498/zuii/commit/c4dac8d9b4d37c6d6ea9d0ab3179014d56253b0d))
+
 ## [1.4.22](https://github.com/vincentm498/zuii/compare/v1.4.21...v1.4.22) (2026-03-13)
 
 
