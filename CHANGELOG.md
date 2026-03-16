@@ -1,3 +1,10 @@
+## [1.4.24](https://github.com/vincentm498/zuii/compare/v1.4.23...v1.4.24) (2026-03-16)
+
+
+### Bug Fixes
+
+* Lower SweetAlert2 container z-index from 99999 to 9999. ([78f118f](https://github.com/vincentm498/zuii/commit/78f118f6d253a8c216b4661370ac4d02e9564561))
+
 ## [1.4.23](https://github.com/vincentm498/zuii/compare/v1.4.22...v1.4.23) (2026-03-16)
 
 
