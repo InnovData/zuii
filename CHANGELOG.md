@@ -1,3 +1,10 @@
+## [1.4.25](https://github.com/vincentm498/zuii/compare/v1.4.24...v1.4.25) (2026-03-18)
+
+
+### Bug Fixes
+
+* Integrate Uppy for enhanced file input capabilities including webcam support, image editing, and file actions. ([1a59000](https://github.com/vincentm498/zuii/commit/1a59000a9364bae6e8a09436bcbc844625f9f91b))
+
 ## [1.4.24](https://github.com/vincentm498/zuii/compare/v1.4.23...v1.4.24) (2026-03-16)
 
 
