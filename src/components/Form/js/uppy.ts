@@ -222,8 +222,8 @@ export const setupFileOpenButtons = (
 		// Fonction utilitaire pour créer la structure d'un bouton calqué sur le composant `<Button btnIcon transparent size="xs" variant="light">`
 		const createZuiiButton = (iconName: string, title: string, onClick: (file: any) => void) => {
 			const btn = document.createElement('a');
-			btn.type = 'button';
 			btn.title = title;
+			btn.href = '#';
 			btn.setAttribute('aria-label', title);
 			// Classes générées par Button (React Bootstrap + classes custom)
 			btn.className = 'btn btn-light uppy-Dashboard-Item-action btn-xs btn-icon btn-transparent';
