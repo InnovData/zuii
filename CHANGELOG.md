@@ -1,3 +1,10 @@
+## [1.4.27](https://github.com/vincentm498/zuii/compare/v1.4.26...v1.4.27) (2026-03-18)
+
+
+### Bug Fixes
+
+* change Zuii button creation from a button element to an anchor element. ([87e4e29](https://github.com/vincentm498/zuii/commit/87e4e2997261417f60fd66b887c4fa84f46cef1d))
+
 ## [1.4.26](https://github.com/vincentm498/zuii/compare/v1.4.25...v1.4.26) (2026-03-18)
 
 
