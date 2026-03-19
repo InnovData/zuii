@@ -1,3 +1,10 @@
+## [1.4.31](https://github.com/vincentm498/zuii/compare/v1.4.30...v1.4.31) (2026-03-19)
+
+
+### Bug Fixes
+
+* add `injectDynamicPageClass` utility for dynamic BEM class injection and export it. ([a6a2481](https://github.com/vincentm498/zuii/commit/a6a2481a58b52428fd80e388460365158a3db696))
+
 ## [1.4.30](https://github.com/vincentm498/zuii/compare/v1.4.29...v1.4.30) (2026-03-19)
 
 
