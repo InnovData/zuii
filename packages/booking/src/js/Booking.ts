@@ -73,6 +73,9 @@ export class Booking {
 		} as Required<BookingOptions>;
 
 
+		this.selectedDate = this.options.selectedDate;
+		this.currentTrads = { ...(trads[this.options.lang] || trads.fr), ...this.options.labels };
+
 		if (!this.options.fields) {
 			this.options.fields = [
 				{ name: 'firstname', label: this.currentTrads.fields.firstname, type: 'text', required: true },
@@ -80,10 +83,6 @@ export class Booking {
 				{ name: 'email', label: 'Email', type: 'email', required: true }
 			];
 		}
-
-
-		this.selectedDate = this.options.selectedDate;
-		this.currentTrads = { ...(trads[this.options.lang] || trads.fr), ...this.options.labels };
 		this.initLayout();
 		this.render();
 	}
