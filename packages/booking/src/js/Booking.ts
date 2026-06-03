@@ -23,7 +23,7 @@ export interface BookingField {
 export interface BookingOptions extends Omit<CalendarOptions, 'onDateSelect'> {
 	lang?: ZuiiLang;
 	disabledLangs?: ZuiiLang[];
-	availability: Record<string, string[]>;
+	availability: Record<string, (string | any)[]>;
 	selectedDate?: Date | null;
 	inputName?: string;
 	fields?: BookingField[];
@@ -73,6 +73,9 @@ export class Booking {
 		} as Required<BookingOptions>;
 
 
+		this.selectedDate = this.options.selectedDate;
+		this.currentTrads = { ...(trads[this.options.lang] || trads.fr), ...this.options.labels };
+
 		if (!this.options.fields) {
 			this.options.fields = [
 				{ name: 'firstname', label: this.currentTrads.fields.firstname, type: 'text', required: true },
@@ -80,10 +83,6 @@ export class Booking {
 				{ name: 'email', label: 'Email', type: 'email', required: true }
 			];
 		}
-
-
-		this.selectedDate = this.options.selectedDate;
-		this.currentTrads = { ...(trads[this.options.lang] || trads.fr), ...this.options.labels };
 		this.initLayout();
 		this.render();
 	}
@@ -170,11 +169,20 @@ export class Booking {
 			<div class="booking">
 				<h3 class="booking__title">${titleLabel} ${formattedDate}</h3>
 				<div class="booking__slots">
-					${slots.map(slot => `
-						<button class="btn btn-primary booking__slot ${this.selectedSlot === slot ? 'booking__slot--selected' : ''}" data-slot="${slot}">
-							<span class="btn-content booking__slot__label">${slot.includes(':') ? slot.replace(':', 'h') : slot}</span>
-						</button>
-					`).join('')}
+					${slots.map((slot: any) => {
+						const isObject = typeof slot !== 'string';
+						const label = isObject ? slot.time : slot;
+						const isActive = isObject ? slot.active !== false : true;
+						const isAvailable = isObject ? slot.available !== false : true;
+
+						if (!isActive || !isAvailable) return '';
+
+						return `
+							<button class="btn btn-primary booking__slot ${this.selectedSlot === label ? 'booking__slot--selected' : ''}" data-slot="${label}">
+								<span class="btn-content booking__slot__label">${label.includes(':') ? label.replace(':', 'h') : label}</span>
+							</button>
+						`;
+					}).join('')}
 					${slots.length === 0 ? `<p class="booking__empty">${this.currentTrads.noSlots}</p>` : ''}
 				</div>
 
@@ -214,6 +222,10 @@ export class Booking {
 		const formattedDate = format(date, 'EEEE d MMMM yyyy', { locale });
 		const displaySlot = slot.includes(':') ? slot.replace(':', 'h') : slot;
 
+		const pathSegments = window.location.pathname.split('/').filter(Boolean);
+		const lastSegment = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : '';
+		const formId = lastSegment ? `booking-confirmation-${lastSegment}` : 'booking-confirmation-form';
+
 		const prep = this.options.lang === 'fr' ? (slot.includes(':') ? 'à' : 'au') : (slot.includes(':') ? 'at' : 'on');
 		const body = `
 			<p class="booking-modal__text">${this.currentTrads.confirmBody
@@ -221,7 +233,9 @@ export class Booking {
 				.replace('{date}', formattedDate)
 				.replace('{slot}', displaySlot)
 				.replace('{prep}', prep)}</p>
-			<form id="booking-confirmation-form" class="form booking-form">
+			<form id="${formId}" class="form js-form booking-form" data-form="${formId}">
+				<input type="hidden" name="booking_date" value="${format(date, 'yyyy-MM-dd')}" />
+				<input type="hidden" name="booking_slot" value="${slot}" />
 				${this.options.fields.map(field => {
 					const inputType = field.type === 'quantity' ? 'number' : field.type;
 					const inputClass = field.type === 'checkbox' ? 'form-check-input' : 'form-control';
@@ -263,7 +277,7 @@ export class Booking {
 			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
 				${this.currentTrads.cancelBtn}
 			</button>
-			<button type="submit" form="booking-confirmation-form" class="btn btn-primary" id="confirm-booking-btn">
+			<button type="submit" form="${formId}" class="btn btn-primary" id="confirm-booking-btn">
 				${this.currentTrads.confirmBtn}
 			</button>
 		`;
@@ -277,7 +291,7 @@ export class Booking {
 
 		// Gérer la soumission du formulaire
 		setTimeout(() => {
-			const form = document.getElementById('booking-confirmation-form') as HTMLFormElement;
+			const form = document.getElementById(formId) as HTMLFormElement;
 			if (form) {
 				form.addEventListener('submit', (e) => {
 					e.preventDefault();

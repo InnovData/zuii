@@ -25,6 +25,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@zuii/core': resolve(__dirname, 'packages/core/src'),
+      '@core': resolve(__dirname, 'packages/core/src/styles'),
       '@zuii/cookie-consent/react': resolve(__dirname, 'packages/cookie-consent/src/react/index.tsx'),
       '@zuii/cookie-consent/style': resolve(__dirname, 'packages/cookie-consent/src/style/index.scss'),
       '@zuii/cookie-consent': resolve(__dirname, 'packages/cookie-consent/src/js/cookie-consent.ts'),
@@ -40,6 +41,14 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         silenceDeprecations: ['color-functions', 'import', 'global-builtin', 'if-function'],
+        importers: [{
+          findFileUrl(url: string) {
+            if (url.startsWith('@core/')) {
+              return new URL('file://' + resolve(__dirname, 'packages/core/src/styles', url.slice('@core/'.length)));
+            }
+            return null;
+          }
+        }],
       },
     },
   },

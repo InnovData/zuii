@@ -122,6 +122,10 @@ export interface TableOptions {
 	 */
 	emptyRowsHeight?: string;
 	/**
+	 * Active le layout autoHeight d'AG Grid (par défaut: true). Passer null pour désactiver.
+	 */
+	autoHeight?: boolean | null;
+	/**
 	 * Hauteur des lignes.
 	 */
 	rowHeight?: number;
@@ -186,6 +190,8 @@ export const initTable = (
 	const baseClass = 'datagrid';
 	element.className = `${baseClass} ${theme} ${className}`.trim();
 	element.style.width = '100%';
+	const isAutoHeight = options.autoHeight !== null && options.autoHeight !== false;
+	if (!isAutoHeight) element.style.height = '100%';
 
 	// Traiter les colonnes
 	const processedColumnDefs = processColumnDefs(columnDefs);
@@ -195,7 +201,7 @@ export const initTable = (
 		theme: 'legacy', // Utiliser l'ancienne API CSS (v32 style)
 		rowData,
 		columnDefs: processedColumnDefs,
-		domLayout: 'autoHeight',
+		domLayout: isAutoHeight ? 'autoHeight' : undefined,
 		pagination,
 		paginationPageSize,
 		localeText: getLocaleText(locale),

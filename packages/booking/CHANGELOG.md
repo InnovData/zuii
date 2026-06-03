@@ -1,6 +1,46 @@
 # @zuii/booking
 
-## 0.2.0-beta.2
+## 0.4.0-beta.1
+
+### Minor Changes
+
+- Les jours du calendrier ne sont désormais sélectionnables que s'ils possèdent des créneaux actifs. Mise à jour de l'interface d'availability pour supporter des objets avec un état actif.
+
+### Patch Changes
+
+- Updated dependencies
+  - @zuii/calendar@0.4.0-beta.1
+
+## 0.3.0-beta.3
+
+### Patch Changes
+
+- Ajout des champs cachés `booking_date` et `booking_slot` dans le formulaire de confirmation pour faciliter l'intégration avec des outils tiers comme Odrazia.
+
+## 0.3.0-beta.1
+
+### Patch Changes
+
+- Dynamisation de l'id du formulaire de confirmation de réservation basé sur l'URL courante.
+
+## 0.3.0-beta.0
+
+### Minor Changes
+
+- 6adfc92: Ajout des options de configuration `yearRange` et `disablePast` au Calendar. Prise en charge de ces paramètres directement via l'état du Booking. Correction de l'affichage global des jours désactivés.
+- dc26283: Modernisation de l'architecture i18n (getDocLang), ajout du support de l'allemand et de l'espagnol, et ajout de l'option disabledLangs.
+
+### Patch Changes
+
+- Updated dependencies [6adfc92]
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies [dc26283]
+  - @zuii/calendar@0.2.0
+  - @zuii/core@0.2.0
+  - @zuii/modal@0.1.1
+
+## 0.3.0-beta.0-beta.2
 
 ### Minor Changes
 
@@ -13,7 +53,7 @@
   - @zuii/core@0.2.0-beta.1
   - @zuii/modal@0.1.1-beta.1
 
-## 0.2.0-beta.1
+## 0.3.0-beta.0-beta.1
 
 ### Minor Changes
 
