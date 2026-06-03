@@ -44,7 +44,8 @@ export const Table = ({
 	emptyRowsHeight = '2rem',
 	rowHeight = 25,
 	getRowHeight,
-	isRowSelectable
+	isRowSelectable,
+	autoHeight = true
 }: Props) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
@@ -112,14 +113,16 @@ export const Table = ({
 		}
 	}, [emptyRowsHeight, gridApi, rowData, datasource, paginationState.totalRows]);
 
+	const isAutoHeight = autoHeight !== null && autoHeight !== false;
+
 	return (
-		<div className={wrapperClass} style={{ width: '100%' }} ref={containerRef}>
-			<div className="datagrid__container">
+		<div className={wrapperClass} style={{ width: '100%', height: isAutoHeight ? undefined : '100%' }} ref={containerRef}>
+			<div className="datagrid__container" style={{ height: isAutoHeight ? undefined : '100%' }}>
 				<AgGridReact
 					theme="legacy"
 					rowData={rowModelType === 'infinite' ? undefined : (rowData || [])}
 					columnDefs={processedColumnDefs}
-					domLayout="autoHeight"
+					domLayout={isAutoHeight ? 'autoHeight' : undefined}
 					pagination={pagination}
 					paginationPageSize={paginationState.pageSize}
 					suppressPaginationPanel={true}

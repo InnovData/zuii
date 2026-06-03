@@ -94,11 +94,11 @@ export const Tables = () => {
 
 				<h5 className='mt-5'>Sélection Désactivée (isRowSelectable)</h5>
 				<p className="text-muted mb-4">Exemple avec des lignes spécifiques non sélectionnables (ici, seuls les ID impairs sont sélectionnables).</p>
-				<Table 
-					rowData={dataSimple} 
-					columnDefs={columnsSimple} 
-					selectable={true} 
-					isRowSelectable={(node) => node.data ? node.data.id % 2 !== 0 : false} 
+				<Table
+					rowData={dataSimple}
+					columnDefs={columnsSimple}
+					selectable={true}
+					isRowSelectable={(node) => node.data ? node.data.id % 2 !== 0 : false}
 				/>
 
 				<h5 className='mt-5'>Avancé : Actions, Pagination et Redimensionnement</h5>
@@ -115,7 +115,7 @@ export const Tables = () => {
 				/>
 
 				<h5 className='mt-5'>Gestion des Statuts (Badges & Styles de lignes)</h5>
-				<Table rowData={dataStatus} columnDefs={columnsStatus} rowClassRules={rowClassRules} resizable rowHeight={50}/>
+				<Table rowData={dataStatus} columnDefs={columnsStatus} rowClassRules={rowClassRules} resizable rowHeight={50} />
 
 				<h5 className='mt-5'>Chargement Infini (DummyJSON)</h5>
 				<p className="text-muted mb-4">Récupère les données au fur et à mesure du défilement ou de la pagination. Supporte aussi la recherche et le tri serveur.</p>
@@ -147,6 +147,12 @@ export const Tables = () => {
 					onGridReady={(params) => setGridApi(params.api)}
 					sortable
 				/>
+				<h5 className='mt-5'>autoHeight désactivé (hauteur fixe via le conteneur)</h5>
+				<p className="text-muted small">Passer <code>autoHeight={'{null}'}</code> pour que le tableau ne s'adapte pas à son contenu — utile dans un conteneur de hauteur fixe.</p>
+				<div style={{ height: 300 }}>
+					<Table rowData={dataAdvanced} columnDefs={columnsAdvanced} autoHeight={null} />
+				</div>
+
 				<h5 className='mt-5'>Exemple sans données (Simple)</h5>
 				<Table rowData={[]} columnDefs={columnsSimple} />
 
