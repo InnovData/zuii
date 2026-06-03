@@ -1,13 +1,13 @@
 @use "../components/menu/menu-base" as *;
 
-.choices{
+.choices {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	padding: var(--spacing-xs) var(--spacing-sm);
-		padding: 0 var(--spacing-sm);
-			width: 100%;
-		// 	line-height: 1.49;
+	padding: 0 var(--spacing-sm);
+	width: 100%;
+	// 	line-height: 1.49;
 }
 
 // .form__input:has(.choices){
@@ -16,34 +16,34 @@
 // }
 
 
-.choices__placeholder{
+.choices__placeholder {
 	opacity: 1;
 	color: var(--form-placeholder-color);
 }
 
 .choices__inner,
-.choices__input{
+.choices__input {
 	background-color: transparent;
 	border: none;
 	border-radius: 0;
 	min-height: initial;
 	margin: 0;
 	display: flex;
-		align-items: center;
-		padding-left: .5rem;
+	// align-items: center;
+	// padding-left: .5rem;
 }
 
-.choices:not([data-type="select-multiple"]) .choices__inner{
+.choices:not([data-type="select-multiple"]) .choices__inner {
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-xs);
 }
 
-.choices__list--single{
+.choices__list--single {
 	padding: 0;
 }
 
-.choices[data-type*="select-one"]::after{
+.choices[data-type*="select-one"]::after {
 	content: "";
 	mask-image: var(--icons-chevron-down);
 	mask-size: contain;
@@ -62,7 +62,7 @@
 
 
 
-.choices__list--multiple .choices__item{
+.choices__list--multiple .choices__item {
 	border-radius: var(--radius-pill);
 	background-color: var(--accent);
 	border: var(--border-width) solid var(--accent-dark);
@@ -83,10 +83,8 @@
 	display: inline-block;
 }
 
-.form__input:has(.choices.is-disabled){
+.form__input:has(.choices.is-disabled) {
 	--border-color: color-mix(in srgb, currentColor, transparent 70%);
-	color: color-mix(in srgb, currentColor , transparent 70%);
+	color: color-mix(in srgb, currentColor, transparent 70%);
 
 }
-
-
